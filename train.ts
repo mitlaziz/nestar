@@ -1,20 +1,38 @@
 // MIT TASK ZK
-/** 
-type scriptda Shunday function yozing, u har soniyada bir marta 
-consolega 1 dan 5 gacha bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini 
-toxtatsin.   MASALAN: printNumbers() */
-function printNumbers() {
-	let count = 1;
-	const interval = setInterval(() => {
-		console.log(count);
-		count++;
-		if (count > 5) {
-			clearInterval(interval);
-		}
-	}, 1000);
+/**Shunday function yozing, u parametrda berilgan stringni 
+ * kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
+MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+ */
+function stringToKebab(input: string): string {
+	// Harflarni kichik qilish
+	const lowercaseInput = input.toLowerCase();
+	// Bo'sh joylarni - belgiga almashtirish
+	const kebabCaseString = lowercaseInput.replace(/\s+/g, '-');
+	return kebabCaseString;
 }
 
-printNumbers();
+// Test qilish
+console.log(stringToKebab('I love Kebab')); // "i-love-kebab"
+
+//==============
+
+// // MIT TASK ZK
+// /**
+// type scriptda Shunday function yozing, u har soniyada bir marta
+// consolega 1 dan 5 gacha bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini
+// toxtatsin.   MASALAN: printNumbers() */
+// function printNumbers() {
+// 	let count = 1;
+// 	const interval = setInterval(() => {
+// 		console.log(count);
+// 		count++;
+// 		if (count > 5) {
+// 			clearInterval(interval);
+// 		}
+// 	}, 1000);
+// }
+
+// printNumbers();
 
 //================
 
