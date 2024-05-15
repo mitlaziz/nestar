@@ -1,18 +1,34 @@
-// MIT TASK ZL
-/**Shunday function yozing, u parametrda berilgan stringni 
- * kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
-MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
- */
-function stringToKebab(input: string): string {
-	// Harflarni kichik qilish
-	const lowercaseInput = input.toLowerCase();
-	// Bo'sh joylarni - belgiga almashtirish
-	const kebabCaseString = lowercaseInput.replace(/\s+/g, '-');
-	return kebabCaseString;
+// MIT TASK ZM
+/** type scriptda Shunday function yozing, u function parametrga berilgan 
+ * raqamlarni orqasiga ogirib qaytarsin.
+MASALAN: reverseInteger(123456789) return 987654321 */
+function reverseInteger(num: number): number {
+	const reversedNum = parseInt(num.toString().split('').reverse().join(''));
+	return reversedNum;
 }
 
-// Test qilish
-console.log(stringToKebab('I love Kebab')); // "i-love-kebab"
+console.log(reverseInteger(123456789)); // 987654321
+/**Bu kod reverseInteger nomli bir funksiya qabul qiladi va parametrga berilgan raqamni o'zgartiradi.
+ *  Raqamni stringga aylantiradi,
+ * harflarini qaytib o'zgartiradi va qaytib raqamga o'zgartiradi. */
+
+///======================
+
+// // MIT TASK ZL
+// /**Shunday function yozing, u parametrda berilgan stringni
+//  * kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
+// MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+//  */
+// function stringToKebab(input: string): string {
+// 	// Harflarni kichik qilish
+// 	const lowercaseInput = input.toLowerCase();
+// 	// Bo'sh joylarni - belgiga almashtirish
+// 	const kebabCaseString = lowercaseInput.replace(/\s+/g, '-');
+// 	return kebabCaseString;
+// }
+
+// // Test qilish
+// console.log(stringToKebab('I love Kebab')); // "i-love-kebab"
 
 //==============
 
