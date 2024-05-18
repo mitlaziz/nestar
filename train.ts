@@ -1,16 +1,38 @@
-// MIT TASK ZM
-/** type scriptda Shunday function yozing, u function parametrga berilgan 
- * raqamlarni orqasiga ogirib qaytarsin.
-MASALAN: reverseInteger(123456789) return 987654321 */
-function reverseInteger(num: number): number {
-	const reversedNum = parseInt(num.toString().split('').reverse().join(''));
-	return reversedNum;
+//MIT TASK ZN
+/** type scriptda Shunday function yozing, uni array va number parametri 
+ * bolsin. Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
+MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4] */
+function rotateArray(arr: any[], index: number): any[] {
+	// arrayning uzunligini olamiz
+	const length = arr.length;
+	// indeksni tekshiramiz va to'g'rilaymiz, agar indeks array uzunligidan katta bo'lsa
+	const normalizedIndex = index % length;
+	// arrayni bo'lamiz
+	const firstPart = arr.slice(length - normalizedIndex);
+	const secondPart = arr.slice(0, length - normalizedIndex);
+	// array qismlarini birlashtiramiz
+	return firstPart.concat(secondPart);
 }
 
-console.log(reverseInteger(123456789)); // 987654321
-/**Bu kod reverseInteger nomli bir funksiya qabul qiladi va parametrga berilgan raqamni o'zgartiradi.
- *  Raqamni stringga aylantiradi,
- * harflarini qaytib o'zgartiradi va qaytib raqamga o'zgartiradi. */
+// Funksiyani chaqirish misoli:
+const result = rotateArray([1, 2, 3, 4, 5, 6], 2);
+console.log(result); // [5, 6, 1, 2, 3, 4]
+
+//==================
+
+// // MIT TASK ZM
+// /** type scriptda Shunday function yozing, u function parametrga berilgan
+//  * raqamlarni orqasiga ogirib qaytarsin.
+// MASALAN: reverseInteger(123456789) return 987654321 */
+// function reverseInteger(num: number): number {
+// 	const reversedNum = parseInt(num.toString().split('').reverse().join(''));
+// 	return reversedNum;
+// }
+
+// console.log(reverseInteger(123456789)); // 987654321
+// /**Bu kod reverseInteger nomli bir funksiya qabul qiladi va parametrga berilgan raqamni o'zgartiradi.
+//  *  Raqamni stringga aylantiradi,
+//  * harflarini qaytib o'zgartiradi va qaytib raqamga o'zgartiradi. */
 
 ///======================
 
