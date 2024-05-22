@@ -1,22 +1,56 @@
-//MIT TASK ZN
-/** type scriptda Shunday function yozing, uni array va number parametri 
- * bolsin. Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
-MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4] */
-function rotateArray(arr: any[], index: number): any[] {
-	// arrayning uzunligini olamiz
-	const length = arr.length;
-	// indeksni tekshiramiz va to'g'rilaymiz, agar indeks array uzunligidan katta bo'lsa
-	const normalizedIndex = index % length;
-	// arrayni bo'lamiz
-	const firstPart = arr.slice(length - normalizedIndex);
-	const secondPart = arr.slice(0, length - normalizedIndex);
-	// array qismlarini birlashtiramiz
-	return firstPart.concat(secondPart);
+// MIT TASK ZO
+/**Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. 
+ * Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+ */
+function areParenthesesBalanced(input: string): boolean {
+	let balance = 0;
+
+	for (let char of input) {
+		if (char === '(') {
+			balance++;
+		} else if (char === ')') {
+			balance--;
+		}
+
+		// Agar balans manfiy bo'lib qolsa, bu noto'g'ri joylashgan qavslar borligini bildiradi
+		if (balance < 0) {
+			return false;
+		}
+	}
+
+	// Oxir-oqibatda balans 0 bo'lishi kerak
+	return balance === 0;
 }
 
-// Funksiyani chaqirish misoli:
-const result = rotateArray([1, 2, 3, 4, 5, 6], 2);
-console.log(result); // [5, 6, 1, 2, 3, 4]
+// Misollar:
+console.log(areParenthesesBalanced('string()ichida(qavslar)soni()balansda')); // true
+console.log(areParenthesesBalanced('string()ichida(qavslar)soni(balansda')); // false
+console.log(areParenthesesBalanced('((()))')); // true
+console.log(areParenthesesBalanced('((())')); // false
+
+//
+//====================
+
+// //MIT TASK ZN
+// /** type scriptda Shunday function yozing, uni array va number parametri
+//  * bolsin. Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
+// MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4] */
+// function rotateArray(arr: any[], index: number): any[] {
+// 	// arrayning uzunligini olamiz
+// 	const length = arr.length;
+// 	// indeksni tekshiramiz va to'g'rilaymiz, agar indeks array uzunligidan katta bo'lsa
+// 	const normalizedIndex = index % length;
+// 	// arrayni bo'lamiz
+// 	const firstPart = arr.slice(length - normalizedIndex);
+// 	const secondPart = arr.slice(0, length - normalizedIndex);
+// 	// array qismlarini birlashtiramiz
+// 	return firstPart.concat(secondPart);
+// }
+
+// // Funksiyani chaqirish misoli:
+// const result = rotateArray([1, 2, 3, 4, 5, 6], 2);
+// console.log(result); // [5, 6, 1, 2, 3, 4]
 
 //==================
 
