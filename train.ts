@@ -1,33 +1,65 @@
-// MIT TASK ZO
-/**Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. 
- * Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
-MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+// MIT TASK ZP
+/** Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
+MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
  */
-function areParenthesesBalanced(input: string): boolean {
-	let balance = 0;
+function majorityElement(nums: number[]): number | null {
+	const countMap: { [key: number]: number } = {};
+	let majorityElement: number | null = null;
+	let maxCount = 0;
 
-	for (let char of input) {
-		if (char === '(') {
-			balance++;
-		} else if (char === ')') {
-			balance--;
+	for (const num of nums) {
+		if (countMap[num]) {
+			countMap[num]++;
+		} else {
+			countMap[num] = 1;
 		}
 
-		// Agar balans manfiy bo'lib qolsa, bu noto'g'ri joylashgan qavslar borligini bildiradi
-		if (balance < 0) {
-			return false;
+		if (countMap[num] > maxCount) {
+			maxCount = countMap[num];
+			majorityElement = num;
 		}
 	}
 
-	// Oxir-oqibatda balans 0 bo'lishi kerak
-	return balance === 0;
+	return majorityElement;
 }
 
-// Misollar:
-console.log(areParenthesesBalanced('string()ichida(qavslar)soni()balansda')); // true
-console.log(areParenthesesBalanced('string()ichida(qavslar)soni(balansda')); // false
-console.log(areParenthesesBalanced('((()))')); // true
-console.log(areParenthesesBalanced('((())')); // false
+// Masalan:
+console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // 4
+
+//
+
+//========================
+
+// // MIT TASK ZO
+// /**Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin.
+//  * Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+// MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+//  */
+// function areParenthesesBalanced(input: string): boolean {
+// 	let balance = 0;
+
+// 	for (let char of input) {
+// 		if (char === '(') {
+// 			balance++;
+// 		} else if (char === ')') {
+// 			balance--;
+// 		}
+
+// 		// Agar balans manfiy bo'lib qolsa, bu noto'g'ri joylashgan qavslar borligini bildiradi
+// 		if (balance < 0) {
+// 			return false;
+// 		}
+// 	}
+
+// 	// Oxir-oqibatda balans 0 bo'lishi kerak
+// 	return balance === 0;
+// }
+
+// // Misollar:
+// console.log(areParenthesesBalanced('string()ichida(qavslar)soni()balansda')); // true
+// console.log(areParenthesesBalanced('string()ichida(qavslar)soni(balansda')); // false
+// console.log(areParenthesesBalanced('((()))')); // true
+// console.log(areParenthesesBalanced('((())')); // false
 
 //
 //====================
