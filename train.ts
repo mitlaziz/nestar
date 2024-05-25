@@ -27,7 +27,7 @@ function findDuplicates(arr) {
 }
 
 // Misol
-console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); // [3, 4]
+console.log(findDuplicates([1, 2, 3, 4, 5, 3, 4])); // [3, 4]
 
 //=======
 
