@@ -1,30 +1,65 @@
-// MIT TASK ZP
-/** Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
-MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
+// MIT TASK ZQ
+/** Shunday function yozing, u parametridagi array ichida 2 marta 
+ * qaytarilgan sonlarni alohida araryda qaytarsin.
+MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
  */
-function majorityElement(nums: number[]): number | null {
-	const countMap: { [key: number]: number } = {};
-	let majorityElement: number | null = null;
-	let maxCount = 0;
+function findDuplicates(arr) {
+	let counts = {};
+	let duplicates = [];
 
-	for (const num of nums) {
-		if (countMap[num]) {
-			countMap[num]++;
+	// Elementlarni sanash
+	for (let i = 0; i < arr.length; i++) {
+		if (counts[arr[i]]) {
+			counts[arr[i]] += 1;
 		} else {
-			countMap[num] = 1;
-		}
-
-		if (countMap[num] > maxCount) {
-			maxCount = countMap[num];
-			majorityElement = num;
+			counts[arr[i]] = 1;
 		}
 	}
 
-	return majorityElement;
+	// 2 marta uchragan elementlarni topish
+	for (let key in counts) {
+		if (counts[key] === 2) {
+			duplicates.push(parseInt(key));
+		}
+	}
+
+	return duplicates;
 }
 
-// Masalan:
-console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // 4
+// Misol
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); // [3, 4]
+
+//=======
+
+//====================
+
+// // MIT TASK ZP
+// /** Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
+// MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
+//  */
+// function majorityElement(nums: number[]): number | null {
+// 	const countMap: { [key: number]: number } = {};
+// 	let majorityElement: number | null = null;
+// 	let maxCount = 0;
+
+// 	for (const num of nums) {
+// 		if (countMap[num]) {
+// 			countMap[num]++;
+// 		} else {
+// 			countMap[num] = 1;
+// 		}
+
+// 		if (countMap[num] > maxCount) {
+// 			maxCount = countMap[num];
+// 			majorityElement = num;
+// 		}
+// 	}
+
+// 	return majorityElement;
+// }
+
+// // Masalan:
+// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // 4
 
 //
 
