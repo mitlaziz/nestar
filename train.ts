@@ -1,33 +1,67 @@
-// MIT TASK ZQ
-/** Shunday function yozing, u parametridagi array ichida 2 marta 
- * qaytarilgan sonlarni alohida araryda qaytarsin.
-MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+// MIT TASK ZR
+/**Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni 
+ * sonini sanasin.
+MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
  */
-function findDuplicates(arr) {
-	let counts = {};
-	let duplicates = [];
 
-	// Elementlarni sanash
-	for (let i = 0; i < arr.length; i++) {
-		if (counts[arr[i]]) {
-			counts[arr[i]] += 1;
-		} else {
-			counts[arr[i]] = 1;
+function countNumberAndLetters(str) {
+	let count = { number: 0, letter: 0 };
+
+	for (let i = 0; i < str.length; i++) {
+		let char = str[i];
+		if (/[0-9]/.test(char)) {
+			count.number++;
+		} else if (/[a-zA-Z]/.test(char)) {
+			count.letter++;
 		}
 	}
 
-	// 2 marta uchragan elementlarni topish
-	for (let key in counts) {
-		if (counts[key] === 2) {
-			duplicates.push(parseInt(key));
-		}
-	}
-
-	return duplicates;
+	return count;
 }
 
-// Misol
-console.log(findDuplicates([1, 2, 3, 4, 5, 3, 4])); // [3, 4]
+// Misol uchun
+console.log(countNumberAndLetters('string152%¥')); // {number: 3, letter: 6}
+
+/** Bu funksiya qanday ishlaydi: "count" nomli obyekt yaratamiz va u dastlab "number" va "letter" xossalari bilan 0 qiymatiga ega bo'ladi.
+ *  Berilgan stringni boshidan oxirigacha bo'lgan har bir belgi bo'yicha aylanamiz ("for" tsikli yordamida).
+ * Har bir belgi ("char") raqam yoki harf ekanligini tekshiramiz.
+ * Agar belgi raqam bo'lsa   (/[0-9]/.test(char)),   number xossasini bittaga oshiramiz.
+ * Agar belgi harf bo'lsa   (/[a-zA-Z]/.test(char)),   letter xossasini bittaga oshiramiz.
+ * Funksiya natijani obyekt ko'rinishida qaytaradi. Bu funksiya har qanday stringda
+ * raqam va harflar sonini to'g'ri hisoblaydi. */
+
+//=====================
+
+// // MIT TASK ZQ
+// /** Shunday function yozing, u parametridagi array ichida 2 marta
+//  * qaytarilgan sonlarni alohida araryda qaytarsin.
+// MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+//  */
+// function findDuplicates(arr) {
+// 	let counts = {};
+// 	let duplicates = [];
+
+// 	// Elementlarni sanash
+// 	for (let i = 0; i < arr.length; i++) {
+// 		if (counts[arr[i]]) {
+// 			counts[arr[i]] += 1;
+// 		} else {
+// 			counts[arr[i]] = 1;
+// 		}
+// 	}
+
+// 	// 2 marta uchragan elementlarni topish
+// 	for (let key in counts) {
+// 		if (counts[key] === 2) {
+// 			duplicates.push(parseInt(key));
+// 		}
+// 	}
+
+// 	return duplicates;
+// }
+
+// // Misol
+// console.log(findDuplicates([1, 2, 3, 4, 5, 3, 4])); // [3, 4]
 
 //=======
 
