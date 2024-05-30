@@ -1,35 +1,74 @@
-// MIT TASK ZR
-/**Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni 
- * sonini sanasin.
-MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
- */
+// MIT TASK ZS
+function singleNumber(nums: number[]): number {
+	const countMap: { [key: number]: number } = {};
 
-function countNumberAndLetters(str) {
-	let count = { number: 0, letter: 0 };
-
-	for (let i = 0; i < str.length; i++) {
-		let char = str[i];
-		if (/[0-9]/.test(char)) {
-			count.number++;
-		} else if (/[a-zA-Z]/.test(char)) {
-			count.letter++;
+	// Arraydagi elementlarni sanaymiz
+	for (const num of nums) {
+		if (countMap[num] === undefined) {
+			countMap[num] = 1;
+		} else {
+			countMap[num]++;
 		}
 	}
 
-	return count;
+	// 1 marta kelgan elementni topamiz
+	for (const num in countMap) {
+		if (countMap[num] === 1) {
+			return parseInt(num);
+		}
+	}
+
+	// Agar hech qanday bitta element bo'lmasa
+	throw new Error("Arrayda faqat bir marta kelgan element yo'q");
 }
 
-// Misol uchun
-console.log(countNumberAndLetters('string152%¥')); // {number: 3, letter: 6}
+// Misol uchun foydalanish:
+const nums = [4, 2, 1, 2, 1];
+console.log(singleNumber(nums)); // 4 ni qaytaradi
+/** Ushbu funksiya quyidagicha ishlaydi:
+"countMap" nomli ob'ektni yaratamiz, bu ob'ektda har bir element necha marta kelganini sanaymiz.
+Birinchi "for" tsiklida "nums" arrayidagi har bir elementni tekshirib,
+ "countMap" ob'ektiga kiritamiz va qiymatni yangilab boramiz.
+Ikkinchi "for" tsiklida "countMap" ob'ektdagi elementlarni tekshirib,
+ agar biror element faqat 1 marta kelgan bo'lsa, o'sha elementni qaytaramiz.
+Agar hech qanday bitta element bo'lmasa, xatolik xabarini chiqaramiz. */
+//====
 
-/** Bu funksiya qanday ishlaydi: "count" nomli obyekt yaratamiz va u dastlab "number" va "letter" xossalari bilan 0 qiymatiga ega bo'ladi.
- *  Berilgan stringni boshidan oxirigacha bo'lgan har bir belgi bo'yicha aylanamiz ("for" tsikli yordamida).
- * Har bir belgi ("char") raqam yoki harf ekanligini tekshiramiz.
- * Agar belgi raqam bo'lsa   (/[0-9]/.test(char)),   number xossasini bittaga oshiramiz.
- * Agar belgi harf bo'lsa   (/[a-zA-Z]/.test(char)),   letter xossasini bittaga oshiramiz.
- * Funksiya natijani obyekt ko'rinishida qaytaradi. Bu funksiya har qanday stringda
- * raqam va harflar sonini to'g'ri hisoblaydi. */
+//==================
 
+// // MIT TASK ZR
+// /**Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni
+//  * sonini sanasin.
+// MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+//  */
+
+// function countNumberAndLetters(str) {
+// 	let count = { number: 0, letter: 0 };
+
+// 	for (let i = 0; i < str.length; i++) {
+// 		let char = str[i];
+// 		if (/[0-9]/.test(char)) {
+// 			count.number++;
+// 		} else if (/[a-zA-Z]/.test(char)) {
+// 			count.letter++;
+// 		}
+// 	}
+
+// 	return count;
+// }
+
+// // Misol uchun
+// console.log(countNumberAndLetters('string152%¥')); // {number: 3, letter: 6}
+
+// /** Bu funksiya qanday ishlaydi: "count" nomli obyekt yaratamiz va u dastlab "number" va "letter" xossalari bilan 0 qiymatiga ega bo'ladi.
+//  *  Berilgan stringni boshidan oxirigacha bo'lgan har bir belgi bo'yicha aylanamiz ("for" tsikli yordamida).
+//  * Har bir belgi ("char") raqam yoki harf ekanligini tekshiramiz.
+//  * Agar belgi raqam bo'lsa   (/[0-9]/.test(char)),   number xossasini bittaga oshiramiz.
+//  * Agar belgi harf bo'lsa   (/[a-zA-Z]/.test(char)),   letter xossasini bittaga oshiramiz.
+//  * Funksiya natijani obyekt ko'rinishida qaytaradi. Bu funksiya har qanday stringda
+//  * raqam va harflar sonini to'g'ri hisoblaydi. */
+
+//===========
 //=====================
 
 // // MIT TASK ZQ
