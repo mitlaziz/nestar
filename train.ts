@@ -1,37 +1,80 @@
-// MIT TASK ZS
-function singleNumber(nums: number[]): number {
-	const countMap: { [key: number]: number } = {};
+// MIT TASK ZT
+/** Shunday function yozing, u parametridagi string ichida 1 martadan ortiq 
+ * qaytarilmagan birinchi harf indeksini qaytarsin.
+MASALAN: firstUniqueCharIndex(“stamp”) return 0
+ */
+function firstUniqueCharIndex(s) {
+	// Harflarning chastotasi uchun obyekt
+	let charCount = {};
 
-	// Arraydagi elementlarni sanaymiz
-	for (const num of nums) {
-		if (countMap[num] === undefined) {
-			countMap[num] = 1;
+	// Harflar chastotasini hisoblash
+	for (let char of s) {
+		if (charCount[char]) {
+			charCount[char]++;
 		} else {
-			countMap[num]++;
+			charCount[char] = 1;
 		}
 	}
 
-	// 1 marta kelgan elementni topamiz
-	for (const num in countMap) {
-		if (countMap[num] === 1) {
-			return parseInt(num);
+	// Bir martadan ortiq qaytarilmagan birinchi harfni topish
+	for (let i = 0; i < s.length; i++) {
+		if (charCount[s[i]] === 1) {
+			return i;
 		}
 	}
 
-	// Agar hech qanday bitta element bo'lmasa
-	throw new Error("Arrayda faqat bir marta kelgan element yo'q");
+	// Agar barcha harflar bir martadan ko'p qaytarilgan bo'lsa, -1 qaytarish
+	return -1;
 }
 
-// Misol uchun foydalanish:
-const nums = [4, 2, 1, 2, 1];
-console.log(singleNumber(nums)); // 4 ni qaytaradi
-/** Ushbu funksiya quyidagicha ishlaydi:
-"countMap" nomli ob'ektni yaratamiz, bu ob'ektda har bir element necha marta kelganini sanaymiz.
-Birinchi "for" tsiklida "nums" arrayidagi har bir elementni tekshirib,
- "countMap" ob'ektiga kiritamiz va qiymatni yangilab boramiz.
-Ikkinchi "for" tsiklida "countMap" ob'ektdagi elementlarni tekshirib,
- agar biror element faqat 1 marta kelgan bo'lsa, o'sha elementni qaytaramiz.
-Agar hech qanday bitta element bo'lmasa, xatolik xabarini chiqaramiz. */
+// Misol uchun test
+console.log(firstUniqueCharIndex('stamp')); // 0
+console.log(firstUniqueCharIndex('swiss')); // 1
+console.log(firstUniqueCharIndex('success')); // -1
+/** Ushbu kod quyidagi bosqichlarni bajaradi:
+
+Dastlab, stringdagi harflarning chastotasi hisoblanadi va obyekt (charCount) ichida saqlanadi.
+Keyinchalik, string ichida bir martadan ortiq qaytarilmagan birinchi harf topiladi va 
+uning indeksi qaytariladi.
+Agar bunday harf topilmasa, funksiya -1 qaytaradi.
+Keltirilgan misollar yordamida funksiyaning ishlashini sinab ko'rishingiz mumkin. */
+
+//===================
+
+// // MIT TASK ZS
+// function singleNumber(nums: number[]): number {
+// 	const countMap: { [key: number]: number } = {};
+
+// 	// Arraydagi elementlarni sanaymiz
+// 	for (const num of nums) {
+// 		if (countMap[num] === undefined) {
+// 			countMap[num] = 1;
+// 		} else {
+// 			countMap[num]++;
+// 		}
+// 	}
+
+// 	// 1 marta kelgan elementni topamiz
+// 	for (const num in countMap) {
+// 		if (countMap[num] === 1) {
+// 			return parseInt(num);
+// 		}
+// 	}
+
+// 	// Agar hech qanday bitta element bo'lmasa
+// 	throw new Error("Arrayda faqat bir marta kelgan element yo'q");
+// }
+
+// // Misol uchun foydalanish:
+// const nums = [4, 2, 1, 2, 1];
+// console.log(singleNumber(nums)); // 4 ni qaytaradi
+// /** Ushbu funksiya quyidagicha ishlaydi:
+// "countMap" nomli ob'ektni yaratamiz, bu ob'ektda har bir element necha marta kelganini sanaymiz.
+// Birinchi "for" tsiklida "nums" arrayidagi har bir elementni tekshirib,
+//  "countMap" ob'ektiga kiritamiz va qiymatni yangilab boramiz.
+// Ikkinchi "for" tsiklida "countMap" ob'ektdagi elementlarni tekshirib,
+//  agar biror element faqat 1 marta kelgan bo'lsa, o'sha elementni qaytaramiz.
+// Agar hech qanday bitta element bo'lmasa, xatolik xabarini chiqaramiz. */
 //====
 
 //==================
