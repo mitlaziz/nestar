@@ -1,43 +1,76 @@
-// MIT TASK ZT
-/** Shunday function yozing, u parametridagi string ichida 1 martadan ortiq 
- * qaytarilmagan birinchi harf indeksini qaytarsin.
-MASALAN: firstUniqueCharIndex(“stamp”) return 0
- */
-function firstUniqueCharIndex(s) {
-	// Harflarning chastotasi uchun obyekt
-	let charCount = {};
+// //MIT TASK ZU
+// /** Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
+// MASALAN: sumOfUnique([1,2,3,2]) return 4
+//  */
+// function sumOfUnique(nums: number[]): number {
+// 	// Elementlarni sanash uchun obyekt
+// 	const count: { [key: number]: number } = {};
 
-	// Harflar chastotasini hisoblash
-	for (let char of s) {
-		if (charCount[char]) {
-			charCount[char]++;
-		} else {
-			charCount[char] = 1;
-		}
-	}
+// 	// Elementlarni sanaymiz
+// 	for (const num of nums) {
+// 		if (count[num]) {
+// 			count[num]++;
+// 		} else {
+// 			count[num] = 1;
+// 		}
+// 	}
 
-	// Bir martadan ortiq qaytarilmagan birinchi harfni topish
-	for (let i = 0; i < s.length; i++) {
-		if (charCount[s[i]] === 1) {
-			return i;
-		}
-	}
+// 	// Takrorlanmagan elementlar yig'indisini hisoblaymiz
+// 	let uniqueSum = 0;
+// 	for (const key in count) {
+// 		if (count[key] === 1) {
+// 			uniqueSum += Number(key);
+// 		}
+// 	}
 
-	// Agar barcha harflar bir martadan ko'p qaytarilgan bo'lsa, -1 qaytarish
-	return -1;
-}
+// 	return uniqueSum;
+// }
 
-// Misol uchun test
-console.log(firstUniqueCharIndex('stamp')); // 0
-console.log(firstUniqueCharIndex('swiss')); // 1
-console.log(firstUniqueCharIndex('success')); // -1
-/** Ushbu kod quyidagi bosqichlarni bajaradi:
+// // Misol uchun
+// console.log(sumOfUnique([1, 2, 3, 2])); // 4 qaytishi kerak
 
-Dastlab, stringdagi harflarning chastotasi hisoblanadi va obyekt (charCount) ichida saqlanadi.
-Keyinchalik, string ichida bir martadan ortiq qaytarilmagan birinchi harf topiladi va 
-uning indeksi qaytariladi.
-Agar bunday harf topilmasa, funksiya -1 qaytaradi.
-Keltirilgan misollar yordamida funksiyaning ishlashini sinab ko'rishingiz mumkin. */
+//====================
+
+// // MIT TASK ZT
+// /** Shunday function yozing, u parametridagi string ichida 1 martadan ortiq
+//  * qaytarilmagan birinchi harf indeksini qaytarsin.
+// MASALAN: firstUniqueCharIndex(“stamp”) return 0
+//  */
+// function firstUniqueCharIndex(s) {
+// 	// Harflarning chastotasi uchun obyekt
+// 	let charCount = {};
+
+// 	// Harflar chastotasini hisoblash
+// 	for (let char of s) {
+// 		if (charCount[char]) {
+// 			charCount[char]++;
+// 		} else {
+// 			charCount[char] = 1;
+// 		}
+// 	}
+
+// 	// Bir martadan ortiq qaytarilmagan birinchi harfni topish
+// 	for (let i = 0; i < s.length; i++) {
+// 		if (charCount[s[i]] === 1) {
+// 			return i;
+// 		}
+// 	}
+
+// 	// Agar barcha harflar bir martadan ko'p qaytarilgan bo'lsa, -1 qaytarish
+// 	return -1;
+// }
+
+// // Misol uchun test
+// console.log(firstUniqueCharIndex('stamp')); // 0
+// console.log(firstUniqueCharIndex('swiss')); // 1
+// console.log(firstUniqueCharIndex('success')); // -1
+// /** Ushbu kod quyidagi bosqichlarni bajaradi:
+
+// Dastlab, stringdagi harflarning chastotasi hisoblanadi va obyekt (charCount) ichida saqlanadi.
+// Keyinchalik, string ichida bir martadan ortiq qaytarilmagan birinchi harf topiladi va
+// uning indeksi qaytariladi.
+// Agar bunday harf topilmasa, funksiya -1 qaytaradi.
+// Keltirilgan misollar yordamida funksiyaning ishlashini sinab ko'rishingiz mumkin. */
 
 //===================
 
