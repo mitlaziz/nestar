@@ -50,7 +50,6 @@ export class BatchService {
 	// }
 
 	public async batchTopProperties(): Promise<void> {
-		console.log('batch properties');
 		const properties: Property[] = await this.propertyModel
 			.find({
 				propertyStatus: PropertyStatus.ACTIVE,

@@ -1,33 +1,33 @@
-// //MIT TASK ZU
-// /** Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
-// MASALAN: sumOfUnique([1,2,3,2]) return 4
-//  */
-// function sumOfUnique(nums: number[]): number {
-// 	// Elementlarni sanash uchun obyekt
-// 	const count: { [key: number]: number } = {};
+//MIT TASK ZU
+/** Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
+MASALAN: sumOfUnique([1,2,3,2]) return 4
+ */
+function sumOfUnique(nums: number[]): number {
+	// Elementlarni sanash uchun obyekt
+	const count: { [key: number]: number } = {};
 
-// 	// Elementlarni sanaymiz
-// 	for (const num of nums) {
-// 		if (count[num]) {
-// 			count[num]++;
-// 		} else {
-// 			count[num] = 1;
-// 		}
-// 	}
+	// Elementlarni sanaymiz
+	for (const num of nums) {
+		if (count[num]) {
+			count[num]++;
+		} else {
+			count[num] = 1;
+		}
+	}
 
-// 	// Takrorlanmagan elementlar yig'indisini hisoblaymiz
-// 	let uniqueSum = 0;
-// 	for (const key in count) {
-// 		if (count[key] === 1) {
-// 			uniqueSum += Number(key);
-// 		}
-// 	}
+	// Takrorlanmagan elementlar yig'indisini hisoblaymiz
+	let uniqueSum = 0;
+	for (const key in count) {
+		if (count[key] === 1) {
+			uniqueSum += Number(key);
+		}
+	}
 
-// 	return uniqueSum;
-// }
+	return uniqueSum;
+}
 
-// // Misol uchun
-// console.log(sumOfUnique([1, 2, 3, 2])); // 4 qaytishi kerak
+// Misol uchun
+console.log(sumOfUnique([1, 2, 3, 2])); // 4 qaytishi kerak
 
 //====================
 
